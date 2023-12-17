@@ -27,7 +27,15 @@ def home(request):
     # Check if data was successfully fetched
     if meal_data is not None:
 
-        return render(request, 'base.html', context={'data': 'meal_data'})
+        return render(request, 'home.html', context={'data': 'meal_data'})
     else:
         print("Failed to fetch data.")
-        return render(request, 'base.html', context={'data': 'meal_data'})
+        return render(request, 'home.html', context={'data': 'meal_data'})
+
+
+def about_us(request):
+    return render(request,'about_us.html',context={'data': 'about_us'})
+
+def show_item(request):
+    return render(request,'show_item.html',context={'data': 'show_item'})
+
