@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+
+<div class="text-center mt-5">
+  <div class="">
+    <h1>Welcome To Buffer Cafe</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+      natus, iusto fuga dolores praesentium soluta dolorum mollitia officiis at
+      nemo esse, corrupti sequi ratione non recusandae possimus perspiciatis,
+      quo obcaecati?
+    </p>
+  </div>
+  <img
+    class="img-fluid mt-3"
+    src="{% static 'images/banned.jpg' %}"
+    alt="My image"
+  />
+</div>
+
+<h1 class="mt-5 text-center border-bottom">ITEMS</h1>
+<div
+  class="row row-cols-1 row-cols-lg-4 mx-1 gap-4 justify-content-center mt-5"
+>
+  {% for category in data.categories %}
+
+  <div class="card col shadow">
+    <img
+      src="{{ category.strCategoryThumb }}"
+      class="card-img-top"
+      alt="image of card item"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ category.strCategory }}</h5>
+      <p class="card-text">Category ID: {{ category.idCategory }}</p>
+      <p class="card-text">
+        {{ category.strCategoryDescription|truncatewords:10 }}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock main %}
